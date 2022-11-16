@@ -1,0 +1,240 @@
+/*
+	author: S. M. Shahriar Nirjon
+	last modified: August 8, 2008
+*/
+# include "iGraphics.h"
+
+int board_x,board_y,dx,dy;
+int board_y1,board_x1,by;
+int lx,ly,l1x,l1y,dly,dl1y;
+//arrow variables...
+int ax,ay,z,x,g,h,a_x,a_y;
+
+void arr(int p,int q,int r,int y){	
+	iSetColor(1,1,1);
+	
+	iLine(p,q,r,y);
+	double xa[]={r,r+12,r+12};
+	double ya[]={y,y+4,y-4};
+	iFilledPolygon(xa,ya,3);
+}
+void arrow(){
+    ax-=z;
+	a_x-=x;
+	ay+=g;
+	a_y+=h;
+}
+
+void iDraw()
+{
+	//place your drawing codes here	
+	iClear();
+	iShowBMP(0,0,"1234.bmp");
+	
+	iSetColor(0,0,0);
+	iFilledRectangle(board_x,board_y,10,by);
+	//iLine(lx,ly,lx,ly+150);
+//	iSetColor(255,150,100);
+//	iFilledRectangle(board_x1,board_y1,10,200);
+//	iSetColor(0,0,255);
+//	iFilledRectangle(board_x+20,board_y+160,10,140);
+//	iSetColor(255,255,0);
+//	iFilledRectangle(board_x+30,board_y+190,10,80);
+//	iSetColor(255,10,0);
+//	iFilledRectangle(board_x+40,board_y+217,10,30);
+	
+	iSetColor(0,0,0);
+	iText(1150,50,"COPYRIGHT",GLUT_BITMAP_9_BY_15);
+	iText(1150,38,"Abir(14-01-04-069)",GLUT_BITMAP_9_BY_15);
+	iText(1150,26,"Rhythm(14-01-04-070)",GLUT_BITMAP_9_BY_15);
+/*	iLine(390,385,320,385);
+	iLine(387,385,390,388);
+	iLine(387,385,390,382);
+	iLine(384,385,387,388);
+	iLine(384,385,387,382);
+	iLine(381,385,384,388);
+	iLine(381,385,384,382);
+	double xa[]={320,323,323};
+	double ya[]={385,387,383};
+	iFilledPolygon(xa,ya,3);
+
+	iLine(390,375,320,375);
+	iLine(387,375,390,378);
+	iLine(387,375,390,372);
+	iLine(384,375,387,378);
+	iLine(384,375,387,372);
+	iLine(381,375,384,378);
+	iLine(381,375,384,372);
+	double xa1[]={320,323,323};
+	double ya1[]={375,377,373};
+	iFilledPolygon(xa1,ya1,3);
+
+	iLine(390,365,320,365);
+	iLine(387,365,390,368);
+	iLine(387,365,390,362);
+	iLine(384,365,387,368);
+	iLine(384,365,387,362);
+	iLine(381,365,384,368);
+	iLine(381,365,384,362);
+	double xa2[]={320,323,323};
+	double ya2[]={365,367,363};
+	iFilledPolygon(xa2,ya2,3);
+
+	iLine(390,355,320,355);
+	iLine(387,355,390,358);
+	iLine(387,355,390,352);
+	iLine(384,355,387,358);
+	iLine(384,355,387,352);
+	iLine(381,355,384,358);
+	iLine(381,355,384,352);
+	double xa3[]={320,323,323};
+	double ya3[]={355,357,353};
+	iFilledPolygon(xa3,ya3,3);
+
+	iLine(390,345,320,345);
+	iLine(387,345,390,348);
+	iLine(387,345,390,342);
+	iLine(384,345,387,348);
+	iLine(384,345,387,342);
+	iLine(381,345,384,348);
+	iLine(381,345,384,342);
+	double xa4[]={320,323,323};
+	double ya4[]={345,347,343};
+	iFilledPolygon(xa4,ya4,3);
+
+	iLine(390,335,320,335);
+	iLine(387,335,390,338);
+	iLine(387,335,390,332);
+	iLine(384,335,387,338);
+	iLine(384,335,387,332);
+	iLine(381,335,384,338);
+	iLine(381,335,384,332);
+	double xa5[]={320,323,323};
+	double ya5[]={335,337,333};
+	iFilledPolygon(xa5,ya5,3);
+	*/
+	if(a_x==10 && board_y>260 && board_y<560)
+	     iPauseTimer(1);
+		else
+	   arr(ax,ay,a_x,a_y);
+	
+	iShowBMP(1094,260,"windd.bmp");
+	
+	
+}
+
+/* 
+	function iMouseMove() is called when the user presses and drags the mouse.
+	(mx, my) is the position where the mouse pointer is.
+*/
+void iMouseMove(int mx, int my)
+{
+	//place your codes here
+}
+
+/* 
+	function iMouse() is called when the user presses/releases the mouse.
+	(mx, my) is the position where the mouse pointer is.
+*/
+void iMouse(int button, int state, int mx, int my)
+{
+	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		//place your codes here	
+	}
+	if(button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
+	{
+		//place your codes here	
+	}
+}
+
+/*
+	function iKeyboard() is called whenever the user hits a key in keyboard.
+	key- holds the ASCII value of the key pressed. 
+*/
+void iKeyboard(unsigned char key)
+{
+	if(key == 'p')
+	{
+		//do something with 'q'
+		iPauseTimer(0);
+	}
+	if(key == 'r')
+	{
+		iResumeTimer(0);
+	
+	}
+	//place your codes for other keys here
+    if(key == 'c')
+	{
+		
+		ax=1200;
+		ay=410;
+		a_x=1000;
+		a_y=410;
+		iSetTimer(10,arrow);
+		z=10;
+		x=10;
+		g=0;
+		h=0;
+
+	}
+}
+void iSpecialKeyboard(unsigned char key)
+{
+
+	if(key == GLUT_KEY_END)
+	{
+		exit(0);	
+	}
+	//place your codes for other keys here
+}
+void boardchange(){
+     board_y+=dy;
+	 
+	 if(board_y >1000 || board_y < 0)dy = -dy;
+	 
+}
+/*void linechange(){
+ly+=dly;
+
+	 if(ly >500 || ly < 0)dly = -dly;
+
+    
+}*/
+//void boardchange1(){
+//     board_y1+=dy;
+//	 if(board_y1 >499 || board_y1 < 0)dy = -dy;
+//}
+
+int main()
+{
+	
+	board_y=100;
+	board_x=0;
+	by=150;
+	/*lx=10;
+	ly=100;
+	l1x=10;
+	//l1y=250;
+	iSetTimer(50, linechange);
+	dly=10;
+//	dl1y=10; */
+	//board_x1=10;
+	//board_y1=130;
+	//place your own initialization codes here. 
+	iSetTimer(20, boardchange);
+	//iSetTimer(20, boardchange1);
+	dy=10;
+	
+	
+	
+	
+	
+	iInitialize(1350, 699, "Archery");
+	
+	
+	//
+	printf(" *** Welcome to your 1st Program!!!");  
+	return 0;
+}	
